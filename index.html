@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Linktree</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
       background-image: url('https://images.pexels.com/photos/3408744/pexels-photo-3408744.jpeg'); /* Gambar latar belakang */
       background-size: cover; /* Mengatur ukuran gambar agar menutupi seluruh latar belakang */
       background-position: center; /* Mengatur posisi gambar ke tengah */
@@ -16,6 +21,7 @@
       text-align: center;
     }
     .container {
+      flex: 1; /* Membuat kontainer mengisi ruang yang tersisa */
       max-width: 600px;
       margin: 0 auto;
       padding: 20px;
@@ -106,10 +112,10 @@
       <!-- Add more social icons as needed -->
     </div>
   </div>
-  <div class="footer">
+  <footer class="footer">
     <p>&copy; 2024 Your Name. All rights reserved.</p>
     <a href="https://example.com" target="_blank">Privacy Policy</a>
     <a href="https://example.com" target="_blank">Terms of Service</a>
-  </div>
+  </footer>
 </body>
 </html>
