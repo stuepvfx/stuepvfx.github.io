@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Linktree</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
   <style>
     html, body {
       height: 100%;
@@ -52,7 +53,8 @@
       margin: 20px 0;
     }
     .links a {
-      display: block;
+      display: flex;
+      align-items: center;
       padding: 15px;
       margin: 10px 0;
       background-color: #343a40;
@@ -62,6 +64,10 @@
       font-size: 18px;
       font-weight: bold;
       transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+      justify-content: center;
+    }
+    .links a i {
+      margin-right: 10px; /* Jarak antara ikon dan teks */
     }
     .links a:hover {
       background-color: #495057;
@@ -115,11 +121,21 @@
       <p>This is a short description about yourself. You can add more details here to give visitors more information about you.</p>
     </div>
     <div class="links">
-      <a href="https://example.com" target="_blank">Website</a>
-      <a href="https://github.com/username" target="_blank">GitHub</a>
-      <a href="https://twitter.com/username" target="_blank">Twitter</a>
-      <a href="https://linkedin.com/in/username" target="_blank">LinkedIn</a>
-      <a href="https://instagram.com/username" target="_blank">Instagram</a>
+      <a href="https://example.com" target="_blank">
+        <i class="fas fa-globe"></i> Website
+      </a>
+      <a href="https://github.com/username" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="https://twitter.com/username" target="_blank">
+        <i class="fab fa-twitter"></i> Twitter
+      </a>
+      <a href="https://linkedin.com/in/username" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://instagram.com/username" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
     </div>
     <div class="social-icons">
       <a href="https://twitter.com/username" target="_blank">
