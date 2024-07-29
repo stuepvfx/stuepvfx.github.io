@@ -24,6 +24,16 @@
       background: url('https://images.pexels.com/photos/14959457/pexels-photo-14959457.jpeg') no-repeat center center fixed;
       background-size: cover; /* Menyesuaikan gambar latar belakang */
     }
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1; /* Mengatur video di belakang konten */
+      visibility: hidden; /* Sembunyikan video jika tidak dapat diputar */
+    }
     .container {
       flex: 1;
       max-width: 600px;
@@ -148,6 +158,10 @@
   </style>
 </head>
 <body>
+  <video class="video-background" autoplay muted loop playsinline>
+    <source src="background.mp4" type="video/mp4"> <!-- Video latar belakang -->
+    Your browser does not support the video tag.
+  </video>
   <div class="welcome-overlay" id="welcome-overlay">
     Welcome to STUEPVFX!
   </div>
