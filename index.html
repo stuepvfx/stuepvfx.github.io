@@ -73,12 +73,17 @@
     }
     .profile {
       margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
     }
     .profile img {
       border-radius: 10px;
       width: 100px;
-      height: 200px;
+      height: 300px; /* Mengubah ukuran menjadi persegi panjang memanjang ke bawah */
       object-fit: cover;
+      margin-bottom: 20px;
     }
     .profile h1 {
       font-size: 24px;
@@ -192,7 +197,7 @@
   </header>
   <div class="container">
     <div class="profile">
-      <img src="https://via.placeholder.com/100x200.png?text=Profile" alt="Profile"> <!-- Gambar profil sementara -->
+      <img src="https://via.placeholder.com/100x300.png?text=Profile" alt="Profile"> <!-- Gambar profil sementara -->
       <h1>Your Name</h1>
       <p>This is a short description about yourself. You can add more details here to give visitors more information about you.</p>
     </div>
