@@ -21,18 +21,45 @@
       text-align: center;
       transition: opacity 1s ease; /* Transisi saat menyembunyikan animasi loading */
       position: relative;
-      background: url('https://images.pexels.com/photos/14959457/pexels-photo-14959457.jpeg') no-repeat center center fixed;
-      background-size: cover; /* Menyesuaikan gambar latar belakang */
     }
-    .video-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1; /* Mengatur video di belakang konten */
-      visibility: hidden; /* Sembunyikan video jika tidak dapat diputar */
+    /* Gambar latar belakang untuk perangkat seluler */
+    @media (max-width: 768px) {
+      body {
+        background: url('https://images.pexels.com/photos/14959457/pexels-photo-14959457.jpeg') no-repeat center center fixed;
+        background-size: cover; /* Menyesuaikan gambar latar belakang */
+      }
+      .video-background, .profile-video {
+        display: none; /* Sembunyikan video pada perangkat seluler */
+      }
+      .profile img {
+        width: 100px;
+        height: 200px;
+      }
+    }
+    /* Video latar belakang untuk desktop */
+    @media (min-width: 769px) {
+      .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1; /* Mengatur video di belakang konten */
+      }
+      .profile-video {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 100px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        z-index: 1; /* Mengatur video profil di atas konten */
+      }
+      .profile img {
+        display: none; /* Sembunyikan gambar profil pada perangkat desktop */
+      }
     }
     .container {
       flex: 1;
@@ -146,20 +173,15 @@
       opacity: 0;
       pointer-events: none; /* Menghindari interaksi saat overlay disembunyikan */
     }
-    /* Media Queries untuk Responsif */
-    @media (max-width: 768px) {
-      .profile img {
-        width: 80px; /* Mengurangi ukuran gambar profil pada perangkat seluler */
-      }
-      .links a {
-        font-size: 16px; /* Mengurangi ukuran font pada perangkat seluler */
-      }
-    }
   </style>
 </head>
 <body>
   <video class="video-background" autoplay muted loop playsinline>
     <source src="background.mp4" type="video/mp4"> <!-- Video latar belakang -->
+    Your browser does not support the video tag.
+  </video>
+  <video class="profile-video" autoplay muted loop playsinline>
+    <source src="profile.mp4" type="video/mp4"> <!-- Video profil -->
     Your browser does not support the video tag.
   </video>
   <div class="welcome-overlay" id="welcome-overlay">
