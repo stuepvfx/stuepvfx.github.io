@@ -46,8 +46,9 @@
     }
     .profile video {
       border-radius: 10px;
-      width: 100px;
-      height: 200px;
+      width: 100%;
+      max-width: 100px;
+      height: auto;
       object-fit: cover;
     }
     .profile h1 {
@@ -142,6 +143,15 @@
     .welcome-overlay.hide {
       opacity: 0;
       pointer-events: none; /* Menghindari interaksi saat overlay disembunyikan */
+    }
+    /* Media Queries untuk Responsif */
+    @media (max-width: 768px) {
+      .profile video {
+        max-width: 80px; /* Mengurangi ukuran video profil pada perangkat seluler */
+      }
+      .links a {
+        font-size: 16px; /* Mengurangi ukuran font pada perangkat seluler */
+      }
     }
   </style>
 </head>
