@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Ganti dengan nama branch yang Anda gunakan, misalnya `master` jika menggunakan nama tersebut
+      - main # Replace with the branch you are using, e.g., `master`
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Ganti dengan versi Node.js yang sesuai jika diperlukan
+          node-version: '20' # Use Node.js 20
 
       - name: Build and Deploy
         run: |
@@ -33,4 +33,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./ # Direktori tempat file Anda berada
+          publish_dir: ./ # Directory where your files are located
