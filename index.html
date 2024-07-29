@@ -60,10 +60,11 @@
       align-items: center;
       padding: 15px;
       margin: 10px 0;
-      background-color: #343a40;
+      background-color: rgba(0, 0, 0, 0.7); /* Latar belakang hitam dengan transparansi */
       color: white;
       text-decoration: none;
       border-radius: 5px;
+      border: 2px solid #fff; /* Stroke berwarna putih, bisa diubah sesuai keinginan */
       font-size: 18px;
       font-weight: bold;
       transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
@@ -73,7 +74,7 @@
       margin-right: 10px; /* Jarak antara ikon dan teks */
     }
     .links a:hover {
-      background-color: #495057;
+      background-color: rgba(0, 0, 0, 0.9); /* Lebih gelap saat hover */
       transform: scale(1.05);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     }
@@ -87,6 +88,7 @@
     .social-icons img {
       width: 40px;
       height: 40px;
+      filter: brightness(0) invert(1); /* Mengubah ikon menjadi putih */
     }
     .header {
       color: #fff;
