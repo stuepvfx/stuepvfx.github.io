@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>STUEPVFX</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap"> <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Open+Sans:wght@300&display=swap"> <!-- Google Fonts -->
   <style>
     html, body {
       height: 100%;
@@ -161,13 +161,20 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.8);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       color: #fff;
       font-size: 24px;
-      font-weight: bold;
+      font-weight: normal; /* Font normal */
       transition: opacity 1s ease;
       z-index: 10;
+      text-align: center;
+    }
+    .welcome-overlay h2 {
+      font-family: 'Open Sans', sans-serif; /* Menggunakan font tipis */
+      font-weight: 300; /* Font tipis */
+      margin: 0;
     }
     .welcome-overlay.hide {
       opacity: 0;
@@ -181,7 +188,9 @@
     Your browser does not support the video tag.
   </video>
   <div class="welcome-overlay" id="welcome-overlay">
-    Welcome to STUEPVFX!
+    <h2>Welcome</h2>
+    <h2>to</h2>
+    <h2>STUEPVFX!</h2>
   </div>
   <header class="header">
     <h1>STUEPVFX</h1>
@@ -189,7 +198,7 @@
   <div class="container">
     <div class="profile">
       <img src="assets/profile.png" alt="Profile"> <!-- Gambar profil dari folder assets -->
-      <h1>Welcome</h1> <!-- Mengganti "Your Name" menjadi "Welcome" -->
+      <h1>Welcome</h1>
       <p>This is a short description about yourself. You can add more details here to give visitors more information about you.</p>
     </div>
     <div class="links">
