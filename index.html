@@ -25,7 +25,7 @@
     /* Gambar latar belakang untuk perangkat seluler */
     @media (max-width: 768px) {
       body {
-        background: url('https://images.pexels.com/photos/14959457/pexels-photo-14959457.jpeg') no-repeat center center fixed;
+        background: url('assets/mobile-background.jpg') no-repeat center center fixed;
         background-size: cover; /* Menyesuaikan gambar latar belakang */
       }
       .video-background, .profile-video {
@@ -182,11 +182,11 @@
 </head>
 <body>
   <video class="video-background" autoplay muted loop playsinline>
-    <source src="background.mp4" type="video/mp4"> <!-- Video latar belakang -->
+    <source src="assets/background.mp4" type="video/mp4"> <!-- Video latar belakang -->
     Your browser does not support the video tag.
   </video>
   <video class="profile-video" autoplay muted loop playsinline>
-    <source src="profile.mp4" type="video/mp4"> <!-- Video profil -->
+    <source src="assets/profile.mp4" type="video/mp4"> <!-- Video profil -->
     Your browser does not support the video tag.
   </video>
   <div class="welcome-overlay" id="welcome-overlay">
@@ -197,7 +197,7 @@
   </header>
   <div class="container">
     <div class="profile">
-      <img src="https://via.placeholder.com/100x300.png?text=Profile" alt="Profile"> <!-- Gambar profil sementara -->
+      <img src="assets/profile.jpg" alt="Profile"> <!-- Gambar profil dari folder assets -->
       <h1>Your Name</h1>
       <p>This is a short description about yourself. You can add more details here to give visitors more information about you.</p>
     </div>
