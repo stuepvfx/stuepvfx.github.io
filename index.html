@@ -48,7 +48,12 @@
         z-index: -1; /* Mengatur video di belakang konten */
       }
       .profile img {
-        display: none; /* Sembunyikan gambar profil pada perangkat desktop */
+        display: block; /* Tampilkan gambar profil pada perangkat desktop */
+        margin: 20px auto; /* Pusatkan gambar profil */
+        border-radius: 10px;
+        width: 100px;
+        height: 300px; /* Mengubah ukuran menjadi persegi panjang memanjang ke bawah */
+        object-fit: cover;
       }
     }
     .container {
@@ -223,4 +228,3 @@
   </script>
 </body>
 </html>
-
