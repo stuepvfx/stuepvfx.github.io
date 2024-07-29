@@ -32,14 +32,19 @@
       margin: 20px 0;
     }
     .profile img {
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
+      border-radius: 10px; /* Membuat sudut yang melengkung pada gambar */
+      width: 100px;
+      height: 200px;
       object-fit: cover;
     }
     .profile h1 {
       font-size: 24px;
       color: #fff;
+    }
+    .profile p {
+      font-size: 16px;
+      color: #ccc;
+      margin: 10px 0;
     }
     .links {
       margin: 20px 0;
@@ -48,7 +53,7 @@
       display: block;
       padding: 15px;
       margin: 10px 0;
-      background-color: #007bff;
+      background-color: #343a40; /* Warna latar belakang dark */
       color: white;
       text-decoration: none;
       border-radius: 5px;
@@ -57,7 +62,7 @@
       transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* Animasi transisi */
     }
     .links a:hover {
-      background-color: #0056b3; /* Warna latar belakang saat hover */
+      background-color: #495057; /* Warna latar belakang dark lebih terang saat hover */
       transform: scale(1.05); /* Skala meningkat saat hover */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Bayangan saat hover */
     }
@@ -92,8 +97,9 @@
 <body>
   <div class="container">
     <div class="profile">
-      <img src="https://via.placeholder.com/120" alt="Profile Picture">
+      <img src="https://via.placeholder.com/100x200" alt="Profile Picture">
       <h1>Your Name</h1>
+      <p>This is a short description about yourself. You can add more details here to give visitors more information about you.</p>
     </div>
     <div class="links">
       <a href="https://example.com" target="_blank">Website</a>
