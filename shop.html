@@ -38,7 +38,12 @@
                     }
                 });
                 const data = await response.json();
-                renderProducts(data);
+                console.log(data); // Periksa data yang diterima
+                if (data && data.products) {
+                    renderProducts(data.products); // Sesuaikan dengan struktur data yang sebenarnya
+                } else {
+                    console.error('Data products tidak ditemukan');
+                }
             } catch (error) {
                 console.error('Error fetching products:', error);
             }
