@@ -1,239 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STUEPVFX</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Open+Sans:wght@300&display=swap"> <!-- Google Fonts -->
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden; /* Menghindari scroll saat animasi loading */
-    }
-    body {
-      display: flex;
-      flex-direction: column;
-      font-family: 'Raleway', sans-serif; /* Menggunakan font Raleway dari Google Fonts */
-      color: #fff;
-      text-align: center;
-      transition: opacity 1s ease; /* Transisi saat menyembunyikan animasi loading */
-      position: relative;
-    }
-    /* Gambar latar belakang untuk perangkat seluler */
-    @media (max-width: 768px) {
-      body {
-        background: url('assets/mobile-background.jpg') no-repeat center center fixed;
-        background-size: cover; /* Menyesuaikan gambar latar belakang */
-      }
-      .video-background {
-        display: none; /* Sembunyikan video pada perangkat seluler */
-      }
-      .profile img {
-        width: 100px;
-        height: 200px; /* Mengatur ukuran gambar profil pada perangkat seluler */
-      }
-    }
-    /* Video latar belakang untuk desktop */
-    @media (min-width: 769px) {
-      .video-background {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1; /* Mengatur video di belakang konten */
-      }
-      .profile img {
-        display: block; /* Tampilkan gambar profil pada perangkat desktop */
-        margin: 20px auto; /* Pusatkan gambar profil */
-        border-radius: 10px;
-        width: 100px;
-        height: 300px; /* Mengubah ukuran menjadi persegi panjang memanjang ke bawah */
-        object-fit: cover;
-      }
-    }
-    .container {
-      flex: 1;
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-      position: relative;
-      z-index: 1;
-    }
-    .profile {
-      margin: 20px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .profile img {
-      border-radius: 10px;
-      width: 100px;
-      height: 300px; /* Mengubah ukuran menjadi persegi panjang memanjang ke bawah */
-      object-fit: cover;
-      margin-bottom: 20px;
-    }
-    .profile h1 {
-      font-size: 24px;
-      color: #fff;
-    }
-    .profile p {
-      font-size: 16px;
-      color: #ccc;
-      margin: 10px 0;
-    }
-    .links {
-      margin: 20px 0;
-    }
-    .links a {
-      display: flex;
-      align-items: center;
-      padding: 15px;
-      margin: 10px 0;
-      background-color: rgba(0, 0, 0, 0.7); /* Latar belakang hitam dengan transparansi */
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      border: 2px solid #fff; /* Stroke berwarna putih, bisa diubah sesuai keinginan */
-      font-size: 18px;
-      font-weight: bold;
-      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-      justify-content: center;
-    }
-    .links a i {
-      margin-right: 10px; /* Jarak antara ikon dan teks */
-    }
-    .links a:hover {
-      background-color: rgba(0, 0, 0, 0.9); /* Lebih gelap saat hover */
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    }
-    .social-icons {
-      margin-top: 20px;
-    }
-    .social-icons a {
-      display: inline-block;
-      margin: 0 10px;
-    }
-    .social-icons img {
-      width: 40px;
-      height: 40px;
-      filter: brightness(0) invert(1); /* Mengubah ikon menjadi putih */
-    }
-    .header {
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      border-bottom: 1px solid #444;
-      position: relative;
-      z-index: 1;
-      background: none; /* Menghapus gambar latar belakang header */
-    }
-    .footer {
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      border-top: 1px solid #444;
-      margin-top: auto; /* Memastikan footer berada di bagian bawah layar */
-      background: none; /* Menghapus gambar latar belakang footer */
-    }
-    .footer a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    .footer a:hover {
-      text-decoration: underline;
-    }
-    /* Animasi sambutan */
-    .welcome-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      font-size: 24px;
-      font-weight: normal; /* Font normal */
-      transition: opacity 1s ease;
-      z-index: 10;
-      text-align: center;
-    }
-    .welcome-overlay h2 {
-      font-family: 'Open Sans', sans-serif; /* Menggunakan font tipis */
-      font-weight: 300; /* Font tipis */
-      margin: 0;
-    }
-    .welcome-overlay.hide {
-      opacity: 0;
-      pointer-events: none; /* Menghindari interaksi saat overlay disembunyikan */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Pages</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+        .left {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .right {
+            flex: 1;
+            padding: 20px;
+        }
+        .profile-img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: block;
+            color: #333;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+        .shop-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .shop-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-  <video class="video-background" autoplay muted loop playsinline>
-    <source src="assets/background.mp4" type="video/mp4"> <!-- Video latar belakang -->
-    Your browser does not support the video tag.
-  </video>
-  <div class="welcome-overlay" id="welcome-overlay">
-    <h2>Welcome</h2>
-    <h2>to</h2>
-    <h2>STUEPVFX!</h2>
-  </div>
-  <header class="header">
-    <h1>STUEPVFX</h1>
-  </header>
-  <div class="container">
-    <div class="profile">
-      <img src="assets/profile.png" alt="Profile"> <!-- Gambar profil dari folder assets -->
-      <h1>Welcome</h1>
-      <p>young digital creator, editing, photography, designer who is still in the learning stage.</p>
+    <div class="left">
+        <img src="profile.jpg" alt="Profile Photo" class="profile-img">
+        <div class="social-links">
+            <a href="https://twitter.com/username" target="_blank">Twitter</a>
+            <a href="https://facebook.com/username" target="_blank">Facebook</a>
+            <a href="https://instagram.com/username" target="_blank">Instagram</a>
+        </div>
     </div>
-    <div class="links">
-      <a href="https://payhip.com/STUEPVFX" target="_blank">
-        <i class="fas fa-store"></i> SHOP
-      </a>
-      <a href="https://www.paypal.com/paypalme/efrizal" target="_blank">
-        <i class="fas fa-donate"></i> Donate
-      </a>
+    <div class="right">
+        <a href="https://yourshop.com" class="shop-link" target="_blank">Visit Our Shop</a>
     </div>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/stuepvfx_" target="_blank">
-        <img src="https://img.icons8.com/material-outlined/24/000000/instagram-new.png" alt="Instagram">
-      </a>
-      <a href="https://www.tiktok.com/@stuepvfx" target="_blank">
-        <img src="https://img.icons8.com/material-outlined/24/000000/tiktok.png" alt="TikTok">
-      </a>
-      <a href="https://www.youtube.com/user/stuepvfx" target="_blank">
-        <img src="https://img.icons8.com/material-outlined/24/000000/youtube-play.png" alt="YouTube">
-      </a>
-    </div>
-  </div>
-  <footer class="footer">
-    <p>&copy; 2024 stuepvfx. All rights reserved.</p>
-  </footer>
-
-  <script>
-    // Mengatur animasi sambutan
-    document.addEventListener('DOMContentLoaded', () => {
-      const overlay = document.getElementById('welcome-overlay');
-      setTimeout(() => {
-        overlay.classList.add('hide');
-        document.body.style.overflow = 'auto'; // Mengaktifkan scroll kembali setelah animasi
-      }, 1000); // 1 detik
-    });
-  </script>
 </body>
 </html>
